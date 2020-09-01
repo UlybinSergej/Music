@@ -1,5 +1,12 @@
 package com.example.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.model.Album;
 import com.example.model.Artist;
 import com.example.model.Genre;
@@ -9,16 +16,14 @@ import com.example.service.ArtistService;
 import com.example.service.GenreService;
 import com.example.service.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "/")
@@ -35,7 +40,7 @@ public class HelloController {
 
 
     @GetMapping(path = "/index")
-    public ModelAndView index(){
+    public ModelAndView index() {
         ModelAndView model = new ModelAndView("index");
         Track track = trackService.findTrack(5);
         List<Track> tracks = trackService.findTracksByArtist(3);
@@ -115,7 +120,7 @@ public class HelloController {
         Artist artist = artistService.findArtist(id);
         List<Album> albums = albumService.findAlbumsByArtist(id);
         List<Genre> genres = new ArrayList<>();
-        for (int genresIds :artist.getGenresIds()) {
+        for (int genresIds : artist.getGenresIds()) {
             genres.add(genreService.findGenre(genresIds));
         }
         model.addObject("tracks", tracks);
@@ -132,7 +137,7 @@ public class HelloController {
         List<Track> tracks = trackService.findTracksByAlbum(id);
         List<Artist> artists = artistService.findArtistsByAlbum(id);
         List<Genre> genres = new ArrayList<>();
-        for (int genresIds :album.getGenresIds()) {
+        for (int genresIds : album.getGenresIds()) {
             genres.add(genreService.findGenre(genresIds));
         }
         model.addObject("tracks", tracks);
@@ -142,8 +147,23 @@ public class HelloController {
         return model;
     }
 
-    @GetMapping(path = "/playTrack/LetsMyPeopleGo.mp3")
-    public String play() throws IOException {
-        return "C:\\Users\\Сергей\\Desktop\\DAVA.mp3";
+
+    @GetMapping(path = "/audioDemo")
+    public ModelAndView audioDemo() {
+        return new ModelAndView("audioDemo");
+    }
+
+    @GetMapping(
+            path = "/playTrack/LetsMyPeopleGo.mp3"
+    )
+    public ResponseEntity<FileSystemResource> play() throws IOException {
+        String mp3Path = "/Users/abukata/Downloads/blinding lights - weeknd.mp3";
+        Path path = Paths.get(mp3Path);
+        String contentType = Files.probeContentType(path);
+        FileSystemResource file = new FileSystemResource(mp3Path);
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .contentLength(file.contentLength())
+                .body(file);
     }
 }
