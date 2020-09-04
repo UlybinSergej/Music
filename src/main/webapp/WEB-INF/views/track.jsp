@@ -10,17 +10,16 @@
 <div>
     Information about ${requestScope.track.title}
     <core:forEach var="artist" items="${requestScope.artists}">
-        <ul><a href="/artist?artist_id=${artist._id}">Artist - ${artist.name}</a></ul>
-    </core:forEach>
-    <core:forEach var="album" items="${requestScope.albums}">
-        <ul><a href="/album?album_id=${album._id}">Album - ${album.title}</a></ul>
-    </core:forEach>
-    <core:forEach var="genre" items="${requestScope.genres}">
-        <ul><a href="/tracksByGenre?genre_id=${genre._id}">Genre - ${genre.genreTitle}</a></ul>
-    </core:forEach>
-    <ul><a>${requestScope.track.title}.mp3</a></ul>
-    <audio src="playTrack/LetsMyPeopleGo.mp3" controls></audio>
-    <footer><a href="/index">Main page</a></footer>
-</div>
-</body>
-</html>
+    <ul><button onclick="window.location.href = '/artist?artist_id=${artist._id}';">Artist - ${artist.name}</button></ul>
+     </core:forEach>
+     <core:forEach var="album" items="${requestScope.albums}">
+         <ul><button onclick="window.location.href = '/album?album_id=${album._id}';">Album - ${album.title}</button></ul>
+     </core:forEach>
+     <core:forEach var="genre" items="${requestScope.genres}">
+         <ul><button onclick="window.location.href = '/tracksByGenre?genre_id=${genre._id}';">Genre - ${genre.genreTitle}</button></ul>
+     </core:forEach>
+     <audio src="data:audio/mp3;base64,${track.resource}" controls></audio>
+     <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
+ </div>
+ </body>
+ </html>

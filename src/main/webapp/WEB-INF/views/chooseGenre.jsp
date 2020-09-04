@@ -9,9 +9,9 @@
 <body>
 <div>
     <core:forEach var="genre" items="${requestScope.genres}">
-        <ul><a href="/tracksByGenre?genre_id=${genre._id}">${genre.genreTitle}</a></ul>
+        <ul><button onclick="window.location.href = '/tracksByGenre?genre_id=${genre._id}';">${genre.genreTitle}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>

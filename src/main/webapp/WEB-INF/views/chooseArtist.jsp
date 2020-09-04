@@ -8,9 +8,9 @@
 <body>
 <div>
     <core:forEach var="artist" items="${requestScope.artists}">
-        <ul><a href="/artist?artist_id=${artist._id}">${artist.name}</a></ul>
+        <ul><button onclick="window.location.href = '/artist?artist_id=${artist._id}';">${artist.name}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>

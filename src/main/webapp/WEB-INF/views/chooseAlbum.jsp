@@ -10,9 +10,9 @@
     Choose Album!
 
     <core:forEach var="album" items="${requestScope.albums}">
-        <ul><a href="/album?album_id=${album._id}">${album.title}</a></ul>
+        <ul><button onclick="window.location.href = '/album?album_id=${album._id}';">${album.title}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>

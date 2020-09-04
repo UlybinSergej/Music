@@ -11,16 +11,16 @@
     <ul><img src="${artist.picture[0]}" width="${artist.picture[1]}" height="${artist.picture[2]}"></ul>
     <ul><a>${artist.description}</a></ul>
     <core:forEach var="genre" items="${requestScope.genres}">
-        <ul><a href="/tracksByGenre?genre_id=${genre._id}">Genre - ${genre.genreTitle}</a></ul>
+        <ul><button onclick="window.location.href = '/tracksByGenre?genre_id=${genre._id}';">Genre - ${genre.genreTitle}</button></ul>
     </core:forEach>
     <core:forEach var="album" items="${requestScope.albums}">
-        <ul><a href="/album?album_id=${album._id}">Album - ${album.title}</a></ul>
+        <ul><button onclick="window.location.href = '/album?album_id=${album._id}';">Album - ${album.title}</button></ul>
     </core:forEach>
     <ul><h>Tracks:</h></ul>
     <core:forEach var="track" items="${requestScope.tracks}">
-        <ul><a href="/track?track_id=${track._id}">${track.title}</a></ul>
+        <ul><button onclick="window.location.href = '/track?track_id=${track._id}';">${track.title}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>

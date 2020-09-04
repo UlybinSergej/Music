@@ -3,9 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Java In HTML</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/css?css=bootstrap.css">
+    <link rel="stylesheet" href="/css?css=fontawesome.min.css">
+    <link rel="stylesheet" href="/css?css=main.css">
 </head>
 <body>
 <div>

@@ -10,9 +10,9 @@
     Choose Track!
 
     <core:forEach var="track" items="${requestScope.tracks}">
-        <ul><a href="/track?track_id=${track._id}">${track.title}</a></ul>
+        <ul><button onclick="window.location.href = '/track?track_id=${track._id}';">${track.title}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,10 +12,9 @@ import com.example.model.Album;
 import com.example.model.Artist;
 import com.example.model.Genre;
 import com.example.model.Track;
-import com.example.service.AlbumService;
-import com.example.service.ArtistService;
-import com.example.service.GenreService;
-import com.example.service.TrackService;
+import com.example.service.*;
+import com.mongodb.DBObject;
+import com.mongodb.client.gridfs.model.GridFSFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
@@ -37,6 +37,8 @@ public class HelloController {
     private AlbumService albumService;
     @Autowired
     private ArtistService artistService;
+//    @Autowired
+//    private GridFsService gridFsService;
 
 
     @GetMapping(path = "/index")
@@ -150,17 +152,28 @@ public class HelloController {
 
     @GetMapping(path = "/audioDemo")
     public ModelAndView audioDemo() {
-        return new ModelAndView("audioDemo");
+        ModelAndView model = new ModelAndView("audioDemo");
+        return model;
     }
 
-    @GetMapping(
-            path = "/playTrack/LetsMyPeopleGo.mp3"
-    )
-    public ResponseEntity<FileSystemResource> play() throws IOException {
-        String mp3Path = "/Users/abukata/Downloads/blinding lights - weeknd.mp3";
-        Path path = Paths.get(mp3Path);
+//    @GetMapping(path = "/playTrack")
+//    public ResponseEntity<FileSystemResource> play(@RequestParam("track_id") String track_title) throws IOException {
+//        String mp3Path = "C:\\Users\\Сергей\\Desktop\\" + path1;
+//        Path path = Paths.get(mp3Path);
+//        String contentType = Files.probeContentType(path);
+//        FileSystemResource file = new FileSystemResource(mp3Path);
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType(contentType))
+//                .contentLength(file.contentLength())
+//                .body(file);
+//    }
+
+    @GetMapping(path = "/css")
+    public ResponseEntity<FileSystemResource> bootstrap(@RequestParam("css") String css) throws IOException {
+        String source = "C:\\Users\\Сергей\\Desktop\\проект\\demo\\src\\main\\webapp\\WEB-INF\\views\\css\\css\\" + css;
+        Path path = Paths.get(source);
         String contentType = Files.probeContentType(path);
-        FileSystemResource file = new FileSystemResource(mp3Path);
+        FileSystemResource file = new FileSystemResource(source);
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .contentLength(file.contentLength())

@@ -13,17 +13,17 @@
     <ul><a>${album.description}</a></ul>
     <ul><a>Genres:</a></ul>
     <core:forEach var="genre" items="${requestScope.genres}">
-        <ul><a href="/tracksByGenre?genre_id=${genre._id}">${genre.genreTitle}</a></ul>
+        <ul><button onclick="window.location.href = '/tracksByGenre?genre_id=${genre._id}';">${genre.genreTitle}</button></ul>
     </core:forEach>
     <ul><a>Artists:</a></ul>
     <core:forEach var="artist" items="${requestScope.artists}">
-        <ul><a href="/artist?artist_id=${artist._id}">${artist.name}</a></ul>
+        <ul><button onclick="window.location.href = '/artist?artist_id=${artist._id}';">${artist.name}</button></ul>
     </core:forEach>
     <ul><a>Tracks:</a></ul>
     <core:forEach var="track" items="${requestScope.tracks}">
-        <ul><a href="/track?track_id=${track._id}">${track.title}</a></ul>
+        <ul><button onclick="window.location.href = '/track?track_id=${track._id}';">${track.title}</button></ul>
     </core:forEach>
-    <footer><a href="/index">Main page</a></footer>
+    <footer><button onclick="window.location.href = '/index';">Main page</button></footer>
 </div>
 </body>
 </html>
