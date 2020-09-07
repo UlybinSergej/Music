@@ -1,0 +1,95 @@
+body {
+    background-color: #4e555b;
+    font-family: "Aldhabi", serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #FF4500;
+    margin-top: 70px;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: AngsanaUPC, serif;
+    font-weight: 300;
+    color: #000000;
+
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.left_side {
+    text-align: left;
+}
+
+.right_side {
+    text-align: right;
+}
+
+a {
+    color: #7abaff;
+}
+
+li {
+    color: #7abaff;
+}
+
+a:hover, a:focus {
+    color: #0b2e13;
+    text-decoration: none;
+    outline: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.navbar {
+    font-weight: 800;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar-inverse {
+    background: #2d2d2d;
+    border-color: #2d2d2d;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    background-color: #2d2d2d;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #999;
+    font-weight: bolder;
+    font-size: 33px;
+    letter-spacing: 1px;
+}
+
+#headerwrap {
+    margin-top: -10px;
+    padding-top: 40px;
+    text-align: center;
+    background: url("/picture") repeat-y;
+    min-height: 500px;
+    height: content-box;
+    overflow: hidden;
+    width: 100%;
+    background-size: 100%;
+}
