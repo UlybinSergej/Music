@@ -8,11 +8,38 @@
     <link rel="stylesheet" href="/css?css=main.css">
 </head>
 <body>
-<div>
-    <ul><a href="/chooseGenre">Choose Genre page</a></ul>
-    <ul><a href="/chooseTrack">Choose Track page</a></ul>
-    <ul><a href="/chooseArtist">Choose Artist page</a></ul>
-    <ul><a href="/chooseAlbum">Choose Album page</a></ul>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index">My music player</a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/chooseGenre">Genres</a></li>
+                <li class="active"><a href="/chooseTrack">Tracks</a></li>
+                <li class="active"><a href="/chooseArtist">Artists</a></li>
+                <li class="active"><a href="/chooseAlbum">Albums</a></li>
+                <li class="active"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="headerwrap">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1>Welcome to my music player</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container left_side">
+        <h1>Welcome to my music player_left</h1>
+    </div>
 </div>
 </body>
 </html>

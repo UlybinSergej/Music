@@ -179,4 +179,40 @@ public class HelloController {
                 .contentLength(file.contentLength())
                 .body(file);
     }
+
+//    @GetMapping(path = "/ajax")
+//    public ResponseEntity<FileSystemResource> ajax() throws IOException {
+//        String source = "C:\\Users\\Сергей\\Desktop\\проект\\demo\\src\\main\\webapp\\WEB-INF\\views\\css\\js\\jquery.js";
+//        Path path = Paths.get(source);
+//        String contentType = Files.probeContentType(path);
+//        FileSystemResource file = new FileSystemResource(source);
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType(contentType))
+//                .contentLength(file.contentLength())
+//                .body(file);
+//    }
+//
+//    @GetMapping(path = "/js")
+//    public ResponseEntity<FileSystemResource> js() throws IOException {
+//        String source = "C:\\Users\\Сергей\\Desktop\\проект\\demo\\src\\main\\webapp\\WEB-INF\\views\\css\\js\\bootstrap.js";
+//        Path path = Paths.get(source);
+//        String contentType = Files.probeContentType(path);
+//        FileSystemResource file = new FileSystemResource(source);
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType(contentType))
+//                .contentLength(file.contentLength())
+//                .body(file);
+//    }
+
+    @GetMapping(path = "/picture")
+    public ResponseEntity<FileSystemResource> picture() throws IOException {
+        String source = "C:\\Users\\Сергей\\Desktop\\проект\\картинки\\заставка сайта.jpg";
+        Path path = Paths.get(source);
+        String contentType = Files.probeContentType(path);
+        FileSystemResource file = new FileSystemResource(source);
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .contentLength(file.contentLength())
+                .body(file);
+    }
 }
