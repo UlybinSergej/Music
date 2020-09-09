@@ -37,8 +37,6 @@ public class HelloController {
     private AlbumService albumService;
     @Autowired
     private ArtistService artistService;
-//    @Autowired
-//    private GridFsService gridFsService;
 
 
 
@@ -48,6 +46,12 @@ public class HelloController {
         Track track = trackService.findTrack(5);
         List<Track> tracks = trackService.findTracksByArtist(3);
         model.addObject("track", tracks);
+        return model;
+    }
+
+    @GetMapping(path = "/info")
+    public ModelAndView info() {
+        ModelAndView model = new ModelAndView("info");
         return model;
     }
 

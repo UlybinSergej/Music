@@ -24,7 +24,7 @@
                 <li class="active"><a href="/chooseTrack">Tracks</a></li>
                 <li class="active"><a href="/chooseArtist">Artists</a></li>
                 <li class="active"><a href="/chooseAlbum">Albums</a></li>
-                <li class="active"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                <li class="active"><a href="/info"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
             </ul>
         </div>
     </div>
@@ -36,9 +36,6 @@
                 <h1>Welcome to my music player</h1>
             </div>
         </div>
-    </div>
-    <div class="container left_side">
-        <h1>Welcome to my music player_left</h1>
     </div>
 </div>
 </body>
